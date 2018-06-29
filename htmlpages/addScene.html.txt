@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Auto-Graphic Novel Classroom is a project for Discovery Center at Carleton University, developed by ">
+    <meta name="author" content="NILE">
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/admin.css">
+	<link rel="stylesheet" href="css/add.css">
+	<link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.ui.plupload.css" type="text/css" />
+	<!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootbox.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/add.js"></script>
+
+	<!-- production -->
+	<script type="text/javascript" src="js/plupload.full.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.plupload/jquery.ui.plupload.js"></script>
+	<title>Audio-Graphic Novel Classroom</title>
+</head>
+	
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="admin.html">Audio-Graphic Novel Classroom Admin</a>
+			</div>
+			<ul class="nav navbar-right top-nav">
+				<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>                   
+                        <li class="divider"></li>
+                        <li>
+                            <a id="logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+			</ul>
+			<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="admin.html"><i class="fa fa-fw fa-dashboard"></i> View Scenes</a>
+                    </li>               
+                    <li class="active">
+                        <a href="addScene.html"><i class="fa fa-fw fa-plus-square"></i> Add Scenes</a>
+                    </li>
+					<li>
+                        <a href="editScene.html"><i class="fa fa-fw fa-edit"></i> Edit Scenes</a>
+                    </li>
+					<li>
+                        <a href="deleteScene.html"><i class="fa fa-fw fa-times"></i> Delete Scenes</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+		</nav>
+		<div id="page-wrapper">
+			<div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Add Scenes
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="admin.html">View Scenes</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-fw fa-plus-square"></i> Add Scenes
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+				<div class="alert alert-success" role="alert" id="successMsg" style="display: none"><b>Well done!</b> You successfully added a scene</div>
+				<div class="alert alert-danger" role="alert" id="failMsg" style="display: none"><b>Error!!!</b> Could not create new scene, please check your input</div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form role="form" id="addSceneForm" method="POST" action="php/addScene.php" enctype="multipart/form-data">
+							<div class="panel-group" id="accordion">
+								<div class="panel panel-primary" id="sceneId">							
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-target="#collapseOne" href="#collapseOne">
+												<i class="fa fa-fw fa-info"></i>
+												Scene Identification
+											</a>
+										</h4>
+									</div>
+									<div id="collapseOne" class="panel-collapse collapse in">
+										<div class="panel-body">
+											<div class="form-group" id="title">
+												<i class="fa fa-fw fa-pencil"></i>
+												<label>Scene Title</label>
+												<input type="text" class="form-control" name="title" placeholder="Example: Fuji Mountain" required>
+											</div><br>            
+										
+											<div class="form-group" id="desc">
+												<i class="fa fa-fw fa-pencil"></i>
+												<label>Scene Description</label>
+												<textarea class="form-control" rows="3" name="desc" placeholder="Example: which subject should this scene be suitable" required></textarea>
+											</div>
+										</div>
+									</div>
+								</div>	<br>
+								<div class="panel panel-success">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-target="#collapseTwo" href="#collapseTwo" class="collapsed">
+												<i class="fa fa-fw fa-image"></i>
+												Cover Image
+											</a>
+										</h4>
+									</div>
+									<div id="collapseTwo" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="form-group">
+												<div id="coverUploader"></div>											
+											</div>
+										</div>
+									</div>	
+								</div><br>
+								<div class="panel panel-success">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-target="#collapseThree" href="#collapseThree" class="collapsed">
+												<i class="fa fa-fw fa-video-camera"></i>
+												Projector 1 Customization
+											</a>
+										</h4>
+									</div>
+									<div id="collapseThree" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="form-group">
+												<div id="proj1Uploader"></div>											
+											</div>
+										</div>
+									</div>	
+								</div><br>
+								<div class="panel panel-success">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-target="#collapseFour" href="#collapseFour" class="collapsed">
+												<i class="fa fa-fw fa-video-camera"></i>
+												Projector 2 Customization
+											</a>
+										</h4>
+									</div>
+									<div id="collapseFour" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="form-group">
+												<div id="proj2Uploader"></div>											
+											</div>
+										</div>
+									</div>	
+								</div><br>
+								<div class="panel panel-success">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-target="#collapseFive" href="#collapseFive" class="collapsed">
+												<i class="fa fa-fw fa-video-camera"></i>
+												Projector 3 Customization
+											</a>
+										</h4>
+									</div>
+									<div id="collapseFive" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="form-group">
+												<div id="proj3Uploader"></div>											
+											</div>
+										</div>
+									</div>	
+								</div><br>								
+								
+								<div class="panel panel-success">
+									<div class="panel-heading">
+										<h4 class="panel-title">
+											<a data-toggle="collapse" data-target="#collapseSix" href="#collapseSix">
+												<i class="fa fa-fw fa-file-audio-o"></i>
+												Soundtrack Selection
+											</a>
+										</h4>
+									</div>
+									<div id="collapseSix" class="panel-collapse collapse">
+										<div class="panel-body">
+											<div class="form-group">																			
+												<div id="audiouploader"></div>	
+											</div>
+										</div>
+									</div>
+								</div><br/>
+							</div>
+					
+							<input type="button" class="btn btn-primary" value="Create Scene" id="create">
+                            <input type="button" class="btn btn-cancel" value="New Scene" id="resetFields"><br><br>
+                        </form>
+                    </div>
+				<div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

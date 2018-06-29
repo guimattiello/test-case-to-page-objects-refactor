@@ -1,0 +1,30 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootbox.min.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/sha512.js"></script>
+	<title>Audio-Graphic Novel Classroom</title>
+</head>
+<body style="height:100vh">
+	<div class="container signinForm" id="signinForm">
+		<form id="loginForm" name="loginForm" action="php/process_login.php" method="post" class="signinContent form-signin col-sm-4" role="form">
+			<h2 class="form-signin-heading"><center>Sign in</center></h2>
+			<input id="loginUsername" name="username" type="text" class="form-control" placeholder="Username" autofocus="" /><br />
+			<input id="loginPassword" name="password" type="password" class="form-control" placeholder="Password" />
+			<label class="checkbox remember">
+				<input type="checkbox" value="remember-me" />Remember Me<br /><br />
+			</label>
+			<button class="btn btn-lg btn-primary btn-block" id="login" onclick="formhash(this.form, this.form.username, this.form.password);">Sign in</button>
+		</form>
+	</div>
+	<div id="signOut" class="signinContent form-signin col-sm-4" style="display: none;">
+		<h1><center>You are already logged in</center></h1>
+		<button class="btn btn-lg btn-primary btn-block" id="logout">Sign out</button>
+	</div>
+
+
+</body></html>
