@@ -16,7 +16,6 @@ import spoon.Launcher;
 import spoon.reflect.code.CtBlock;
 import spoon.reflect.code.CtStatement;
 import spoon.reflect.declaration.CtClass;
-import spoon.reflect.declaration.CtField;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.ModifierKind;
 import spoon.reflect.factory.Factory;
@@ -30,21 +29,19 @@ public class Refactor {
 
     int methodCont;
     
-    public void refactor() {
+    public void refactor(String pathToTestCaseFile) {
 
         methodCont = 1;
         
         Launcher spoon = new Launcher();
         
         //String classToRefactorCode = (new Util()).readFile("/Users/guimat/NetBeansProjects/test-case-to-page-objects-refactor/src/test/java/adminClicksCreateSceneTest.java");
-        String classToRefactorCode = (new Util()).readFile("/Users/guimat/NetBeansProjects/Environment-Simulated-Study-Room/test/com/example/tests/adminClicksCreateSceneTest.java");
+        String classToRefactorCode = (new Util()).readFile(pathToTestCaseFile);
 
         String adapterPage = "public class AdapterPage {}";
         CtClass rfClass = Launcher.parseClass(classToRefactorCode);
         PageObject adapterPO = new PageObject("AdapterPage", adapterPage);
 
-        System.out.println(adapterPO.getPageClass());
-        
         Factory rfFactory = rfClass.getFactory();
         Factory poFactory = adapterPO.getPageClass().getFactory();
         poFactory.getEnvironment().setAutoImports(true);
@@ -301,7 +298,12 @@ public class Refactor {
         if (matcherFindBy.matches()) {
             
             String fieldName = matcherFindBy.group(2);
-            fieldName = fieldName.replace(" ", "");
+            fieldName = fieldName
+                    .replace(" ", "")
+                    .replace(".", "_")
+                    .replace("-", "_")
+                    .replace("<", "_")
+                    .replace(">", "");;
             fieldName = fieldName.substring(0,1).toUpperCase().concat(fieldName.substring(1));
             statement += fieldName;
             

@@ -107,12 +107,11 @@ public class RefactorTest {
         a.clearLoginPassword4();
         a.setLoginPassword5();
         a.clickLogin6();
-        a.clickAddScenes7();
+        a.clickEditScenes7();
         a.sleep8();
         assertTrue(a.contains9());
-        a.clickCreate10();
-        a.sleep11();
-        assertTrue(a.contains12());
-        assertTrue(a.size13());
+        a.clickEditScenes10();
+        a.clickEdit11();
+        a.clickButton_btn_btn_primary12();
     }
 }

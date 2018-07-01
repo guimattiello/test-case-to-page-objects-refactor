@@ -170,7 +170,12 @@ public class PageObject {
 
         Factory factory = pageClass.getFactory();
 
-        String newFieldName = fieldName.toLowerCase().replace(" ", "");
+        String newFieldName = fieldName.toLowerCase()
+                .replace(" ", "")
+                .replace(".", "_")
+                .replace("-", "_")
+                .replace("<", "_")
+                .replace(">", "");
         int cont = 1;
 
         if (this.fieldExistsInCtClass(newFieldName)) {

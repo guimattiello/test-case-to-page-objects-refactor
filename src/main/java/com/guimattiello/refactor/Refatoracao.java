@@ -17,8 +17,8 @@ public class Refatoracao {
     public static void main(String[] args) {
         
         Refactor r = new Refactor();
-        //r.refactor();
-        
+        r.refactor("/Users/guimat/NetBeansProjects/Environment-Simulated-Study-Room/test/com/example/tests/adminClicksCreateSceneTest.java");
+        /*
         Launcher spooner = new Launcher();
         
         spooner.addInputResource("/Users/guimat/NetBeansProjects/Environment-Simulated-Study-Room/test/com/example/tests/adminClicksCreateSceneTest.java");
@@ -29,7 +29,7 @@ public class Refatoracao {
         CtClass rfClass = Launcher.parseClass(classToRefactorCode);
         ClassProcessor cp = new ClassProcessor();
         cp.process(rfClass);
-        
+        */
     }
     
 }
