@@ -70,7 +70,7 @@ public class PageObject {
         constructor.setParameters(params);
         constructor.addModifier(ModifierKind.PUBLIC);
 
-        // Apply transformation.
+        // Add method to the class
         this.pageClass.addConstructor(constructor);
         
     }

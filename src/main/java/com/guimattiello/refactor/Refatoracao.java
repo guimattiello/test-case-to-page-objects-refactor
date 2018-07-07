@@ -18,6 +18,7 @@ public class Refatoracao {
         
         Refactor r = new Refactor();
         r.refactor("/Users/guimat/NetBeansProjects/Environment-Simulated-Study-Room/test/com/example/tests/adminClicksCreateSceneTest.java");
+        //r.refactor("/Users/guimat/NetBeansProjects/Environment-Simulated-Study-Room/test/com/example/tests/adminLoginTest.java");
         /*
         Launcher spooner = new Launcher();
         

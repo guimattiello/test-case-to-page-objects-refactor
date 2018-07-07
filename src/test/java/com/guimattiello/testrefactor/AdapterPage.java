@@ -42,18 +42,6 @@ public class AdapterPage {
     @FindBy(id = "login")
     private WebElement login;
 
-    @FindBy(linkText = "Edit Scenes")
-    private WebElement editscenes;
-
-    @FindBy(id = "editScenes")
-    private WebElement editscenes1;
-
-    @FindBy(id = "edit")
-    private WebElement edit;
-
-    @FindBy(css = "button.btn.btn-primary")
-    private WebElement button_btn_btn_primary;
-
     public AdapterPage get1() {
         driver.get(((baseUrl) + "/Environment-Simulated-Study-Room/index.html"));
         return this;
@@ -84,32 +72,12 @@ public class AdapterPage {
         return this;
     }
 
-    public AdapterPage clickEditScenes7() {
-        editscenes.click();
-        return this;
-    }
-
-    public AdapterPage sleep8() throws InterruptedException {
+    public AdapterPage sleep7() throws InterruptedException {
         Thread.sleep(5000);
         return this;
     }
 
-    public boolean contains9() {
-        return driver.getCurrentUrl().contains("/editScene.html");
-    }
-
-    public AdapterPage clickEditScenes10() {
-        editscenes1.click();
-        return this;
-    }
-
-    public AdapterPage clickEdit11() {
-        edit.click();
-        return this;
-    }
-
-    public AdapterPage clickButton_btn_btn_primary12() {
-        button_btn_btn_primary.click();
-        return this;
+    public boolean contains8() {
+        return driver.getCurrentUrl().contains("/admin.html");
     }
 }
